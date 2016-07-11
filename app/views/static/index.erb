@@ -1,33 +1,29 @@
 <div class="container">
- <head>
- 	<style>
- body {
- 	background-color: #baffdc;
-    background-image: url("http://kingofwallpapers.com/aurora/aurora-003.jpg");
-    background-size: cover;
-}
-}
-	</style>
-</head>
-<body>
-	<h1 class="center">Bitly What You Wan</h1>
-
+	<h1 id='title' class="center">Bitly What You Wan</h1>
 	<form class="form" action = "/urls" method="post">
 		<input type="text" name="long_url">
 		<input type="submit" value="Shorten">
 	</form>
-
-	<%= @msg %>
+	<p class="center"><%= @msg %></p>
 	<br>
-
-	<table id="table1" style="width:100%">
-	<th>Before</th><th>After</th>
-
+	<button id='flip'>See More</button>
+	<br>
+	<table>
+		<th width='70%'>
+			<h2>Before</h2>
+		</th>
+		<th width='30%'>
+			<h2>After</h2>
+		</th>
+		<tbody id='table1'>
 		<% @urls.each do |x|%>
 			<tr>
 				<td><%= x.long_url %></td>
-				<td><a href ="/<%=x.short_url%>"><%= x.short_url %></td>
+				<td>
+				<a href ="/<%=x.short_url%>"><%= x.short_url %></a>
+				</td>
 			</tr>
 		<% end %>
+		</tbody>
 	</table>
 </div>
